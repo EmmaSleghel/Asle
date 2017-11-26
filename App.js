@@ -1,3 +1,6 @@
+var canvasWidth="100px";
+var canvasHeight="200px";
+debugger;
 var canvasDiv = document.getElementById('canvasDiv');
 canvas = document.createElement('canvas');
 canvas.setAttribute('width', canvasWidth);
