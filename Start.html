@@ -1,74 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE HTML>
+<html>
+
 <head>
-  <title>Japalearnos</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="main.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Japalearnos</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <link rel="stylesheet" type="text/css" href="style.css" title="style" />
 </head>
-<body class="body-custom">
-    <nav class="navbar navbar-default nav-style">
-        <div class="navbar-header">
-                <a class="navbar-brand" href="#"><h4>JAPALEARNOS</h4></a>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1><a href="Start.html">Japa<span class="logo_colour">learn</span>os</a></h1>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <li class="selected" id="main-tile"><a onclick="mainPage()">Home</a></li>
+                    <li id="example-tile"><a onclick="examplePage()">Examples</a></li>
+                    <li id="another-tile"><a onclick="anotherPage()">Another Page</a></li>
+                    <li id="contact-tile"><a onclick="contactPage()">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row content">
-            <div class="col-sm-2 sidenav nav-side">
-                <h4>Menu</h4>
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#section1">Home</a></li>
-                    <li><a href="#section2">Start Lessons</a></li>
-                    <li><a href="#section3">About Japalearnos</a></li>
-                    <li><a href="#section3">Contact</a></li>
-                </ul><br>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search words...">
-                <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-                </button>
-        </span>
-      </div>
-      </div>
-    <div class="col-sm-9">
-      <h4><small>Japanese learning tool</small></h4>
-      <hr>
-      <h2>I Love Food</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
-      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <br><br>
-      
-      <h4><small>RECENT POSTS</small></h4>
-      <hr>
-      <h2>Officially Blogging</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
-      <h5><span class="label label-success">Lorem</span></h5><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <hr>
-      <h4>Leave a Comment:</h4>
-      <form role="form">
-        <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
+        <div id="site_content">
+            <div class="main-content">
+                <div id="main-page">
+
+                </div>
+                <div id="example-page" style="display:none">
+
+                </div>
+                <div id="contact-page" style="display:none">
+
+                </div>
+                <div id="another-page" style="display:none">
+
+                </div>
+            </div>
+            <div class="sidebar">
+
+                <h3>What's new in Japalearnos</h3>
+                <h4>New Feature Added</h4>
+                <h5>November 27th, 2017</h5>
+                <p>Now you can learn by drawing on the screen<br /><a href="#">Read more</a></p>
+                <p></p>
+                <h4>Huge sale for subscriptions</h4>
+                <h5>November 24th, 2017</h5>
+                <p>This month only, our prices dropped lower than ever before<br /><a href="#">Read more</a></p>
+
+                <h3>Search</h3>
+                <form method="post" action="#" id="search_form">
+                    <p>
+                        <input class="search" type="text" name="search_field" placeholder="Enter keywords..." />
+                        <input name="search" type="image" id="search-icon" src="search.png" alt="Search" title="Search" />
+                    </p>
+                </form>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
-      <br><br>
-      
-          </div>
+        <div id="footer">
+
         </div>
-      </div>
     </div>
-  </div>
-</div>
-
-<footer class="container-fluid">
-  <p>Footer Text</p>
-</footer>
-
+    <script>
+        function hideOtherPages(item) {
+            document.getElementById(item).style.display = "none";
+        }
+        function removeSelectedClassFromOthers(item) {
+            document.getElementById(item).className = "";
+            function mainPage() {
+                ["example-page", "contact-page", "another-page"].map(function (item) {
+                    hideOtherPages(item);
+                });
+                ["example-tile", "contact-tile", "another-tile"].map(function (item) {
+                    removeSelectedClassFromOthers(item);
+                });
+                document.getElementById('main-tile').className = 'selected';
+                document.getElementById("main-page").style.display = "block";
+            }
+            function examplePage() {
+                ["main-page", "contact-page", "another-page"].map(function (item) {
+                    hideOtherPages(item);
+                });
+                ["main-tile", "contact-tile", "another-tile"].map(function (item) {
+                    removeSelectedClassFromOthers(item);
+                });
+                document.getElementById('example-tile').className = 'selected';
+                document.getElementById("example-page").style.display = "block";
+            }
+            function anotherPage() {
+                ["main-page", "contact-page", "example-page"].map(function (item) {
+                    hideOtherPages(item);
+                });
+                ["main-tile", "contact-tile", "example-tile"].map(function (item) {
+                    removeSelectedClassFromOthers(item);
+                });
+                document.getElementById('another-tile').className = 'selected';
+                document.getElementById("another-page").style.display = "block";
+            }
+            function contactPage() {
+                ["main-page", "example-page", "another-page"].map(function (item) {
+                    hideOtherPages(item);
+                });
+                ["main-tile", "example-tile", "another-tile"].map(function (item) {
+                    removeSelectedClassFromOthers(item);
+                });
+                document.getElementById('contact-tile').className = 'selected';
+                document.getElementById("contact-page").style.display = "block";
+            }
+    </script>
 </body>
 </html>
