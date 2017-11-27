@@ -60,25 +60,26 @@ a {
     position: relative;
     height: 90px;
 }
-#logo_img{
-    position:absolute;
-    margin-left:-55px;
+
+#logo_img {
+    position: absolute;
+    margin-left: -55px;
     margin-top: 5px;
-    height:100%;
-
+    height: 100%;
 }
-    #logo #logo_text {
-        position: absolute;
-        top: 20px;
-        left: 0;
-    }
 
-    #logo h1, #logo h2 {
-        font: normal 400% 'century gothic', arial, sans-serif;
-        border-bottom: 0;
-        text-transform: none;
-        margin: 0;
-    }
+#logo #logo_text {
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+#logo h1, #logo h2 {
+    font: normal 400% 'century gothic', arial, sans-serif;
+    border-bottom: 0;
+    text-transform: none;
+    margin: 0;
+}
 
 #logo_text h1, #logo_text h1 a, #logo_text h1 a:hover {
     color: #000;
@@ -144,6 +145,10 @@ ul#menu, ul#menu li {
 .main-content {
     float: left;
     width: 70%;
+    height: 400px;
+}
+
+.pages {
     height: 100%;
 }
 
@@ -154,7 +159,7 @@ ul#menu, ul#menu li {
 }
 
     .sidebar ul {
-        width: 178px;
+        width: 80%;
         padding: 4px 0 0 0;
         margin: 4px 0 30px 0;
     }
@@ -175,25 +180,6 @@ ul#menu, ul#menu li {
                 text-decoration: none;
             }
 
-#content {
-    text-align: left;
-    width: 595px;
-    padding: 0;
-    height: 100%;
-}
-
-    #content ul {
-        margin: 2px 0 22px 0px;
-    }
-
-        #content ul li {
-            list-style-type: none;
-            background: url(bullet.png) no-repeat;
-            margin: 0 0 6px 0;
-            padding: 0 0 4px 25px;
-            line-height: 1.5em;
-        }
-
 #footer {
     width: 60%;
     font: normal 100% 'lucida sans unicode', arial, sans-serif;
@@ -205,108 +191,28 @@ ul#menu, ul#menu li {
     letter-spacing: 0.1em;
 }
 
-    #footer a {
-        color: #FFF;
-        text-decoration: none;
-    }
-
-        #footer a:hover {
-            color: #FFF;
-            text-decoration: underline;
-        }
-
 .search {
     color: #5D5D5D;
     border: 1px solid #BBB;
-    width: 134px;
+    width: 70%;
     padding: 4px;
     font: 100% arial, sans-serif;
 }
 
-#colours {
-    height: 0px;
-    text-align: right;
-    padding: 66px 16px 0px 300px;
-}
-
-.form_settings {
-    margin: 15px 0 0 0;
-}
-
-    .form_settings p {
-        padding: 0 0 4px 0;
-    }
-
-    .form_settings span {
-        float: left;
-        width: 200px;
-        text-align: left;
-    }
-
-    .form_settings input, .form_settings textarea {
-        padding: 5px;
-        width: 299px;
-        font: 100% arial;
-        border: 1px solid #E5E5DB;
-        background: #FFF;
-        color: #47433F;
-    }
-
-    .form_settings .submit {
-        font: 100% arial;
-        border: 1px solid;
-        width: 99px;
-        margin: 0 0 0 212px;
-        height: 33px;
-        padding: 2px 0 3px 0;
-        cursor: pointer;
-        background: red;
-        color: #FFF;
-    }
-
-    .form_settings textarea, .form_settings select {
-        font: 100% arial;
-        width: 299px;
-    }
-
-    .form_settings select {
-        width: 310px;
-    }
-
-    .form_settings .checkbox {
-        margin: 4px 0;
-        padding: 0;
-        width: 14px;
-        border: 0;
-        background: none;
-    }
-
-.separator {
-    width: 100%;
-    height: 0;
-    border-top: 1px solid #D9D5CF;
-    border-bottom: 1px solid #FFF;
-    margin: 0 0 20px 0;
-}
-
-table {
-    margin: 10px 0 30px 0;
-}
-
-    table tr th, table tr td {
-        background: #3B3B3B;
-        color: #FFF;
-        padding: 7px 4px;
-        text-align: left;
-    }
-
-    table tr td {
-        background: #F0EFE2;
-        color: #47433F;
-        border-top: 1px solid #FFF;
-    }
-
 #search-icon {
     height: 20px;
     margin: 0 0 -5px 5px;
+}
+
+#shortDesc {
+    padding: 20px 20px 20px 20px;
+}
+
+.canvas-div {
+    background: transparent url(transparent.png) repeat;
+    height: 80%;
+    width: 65%;
+    margin:auto;
+    margin-top:50px;
+   
 }
