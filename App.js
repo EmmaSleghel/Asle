@@ -1,63 +1,46 @@
-var canvasWidth="100px";
-var canvasHeight="200px";
-debugger;
-var canvasDiv = document.getElementById('canvasDiv');
-canvas = document.createElement('canvas');
-canvas.setAttribute('width', canvasWidth);
-canvas.setAttribute('height', canvasHeight);
-canvas.setAttribute('id', 'canvas');
-canvasDiv.appendChild(canvas);
-if(typeof G_vmlCanvasManager != 'undefined') {
-	canvas = G_vmlCanvasManager.initElement(canvas);
+function hideOtherPages(item) {
+    document.getElementById(item).style.display = "none";
 }
-context = canvas.getContext("2d");
-$('#canvas').mousedown(function(e){
-  var mouseX = e.pageX - this.offsetLeft;
-  var mouseY = e.pageY - this.offsetTop;
-		
-  paint = true;
-  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-  redraw();
-});
-$('#canvas').mousemove(function(e){
-  if(paint){
-    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-    redraw();
-  }
-});
-$('#canvas').mouseup(function(e){
-  paint = false;
-});
-$('#canvas').mouseleave(function(e){
-  paint = false;
-});
-var clickX = new Array();
-var clickY = new Array();
-var clickDrag = new Array();
-var paint;
-
-function addClick(x, y, dragging)
-{
-  clickX.push(x);
-  clickY.push(y);
-  clickDrag.push(dragging);
+function removeSelectedClassFromOthers(item) {
+    document.getElementById(item).className = "";
 }
-function redraw(){
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-  
-  context.strokeStyle = "#df4b26";
-  context.lineJoin = "round";
-  context.lineWidth = 5;
-			
-  for(var i=0; i < clickX.length; i++) {		
-    context.beginPath();
-    if(clickDrag[i] && i){
-      context.moveTo(clickX[i-1], clickY[i-1]);
-     }else{
-       context.moveTo(clickX[i]-1, clickY[i]);
-     }
-     context.lineTo(clickX[i], clickY[i]);
-     context.closePath();
-     context.stroke();
-  }
+function mainPage() {
+    ["example-page", "contact-page", "another-page"].map(function (item) {
+        hideOtherPages(item);
+    });
+    ["example-tile", "contact-tile", "another-tile"].map(function (item) {
+        removeSelectedClassFromOthers(item);
+    });
+    document.getElementById('main-tile').className = 'selected';
+    document.getElementById("main-page").style.display = "block";
+}
+function examplePage() {
+    ["main-page", "contact-page", "another-page"].map(function (item) {
+        hideOtherPages(item);
+    });
+    ["main-tile", "contact-tile", "another-tile"].map(function (item) {
+        removeSelectedClassFromOthers(item);
+    });
+    document.getElementById('example-tile').className = 'selected';
+    document.getElementById("example-page").style.display = "block";
+}
+function anotherPage() {
+    ["main-page", "contact-page", "example-page"].map(function (item) {
+        hideOtherPages(item);
+    });
+    ["main-tile", "contact-tile", "example-tile"].map(function (item) {
+        removeSelectedClassFromOthers(item);
+    });
+    document.getElementById('another-tile').className = 'selected';
+    document.getElementById("another-page").style.display = "block";
+}
+function contactPage() {
+    ["main-page", "example-page", "another-page"].map(function (item) {
+        hideOtherPages(item);
+    });
+    ["main-tile", "example-tile", "another-tile"].map(function (item) {
+        removeSelectedClassFromOthers(item);
+    });
+    document.getElementById('contact-tile').className = 'selected';
+    document.getElementById("contact-page").style.display = "block";
 }
