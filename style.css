@@ -132,6 +132,7 @@ ul#menu, ul#menu li {
 
             ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover {
                 background: red;
+                cursor:pointer;
             }
 
 #site_content {
@@ -237,4 +238,18 @@ ul#menu, ul#menu li {
     background:black;
     margin-left:-1px;
     margin-bottom:-1px;
+}
+#myCanvas{
+    height:90%;
+    width:90%;
+    position:relative;
+    margin-left:20px;
+    margin-top:20px;
+}
+#canvasButton {
+    background-color: red;
+    height: 40px;
+    width: 100px;
+    font: bold 100% 'century gothic', arial, sans-serif;
+    float:right;
 }

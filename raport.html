@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang = ro>
 <head>
@@ -13,61 +13,68 @@
 		<header>
 			<p class = "title"> Raport Japalearnos - Scholarly HTML</p>
 		</header>
+        <div id="bodycontent">
+            <article typeof="schema:ScholarlyArticle" resource="#">
+                <h1> Proiect Japalearnos </h1>
+                <section>
+                    <ol>
+                        <li property="schema:author" typeof="sa:ContributorRole">
+                            <a property="schema:author" typeof="schema:Person">
+                                <span property="schema:givenName">Emma</span>
+                                <span property="schema:familyName">Sleghel</span>
+                            </a>
+                        </li>
 
-		<article typeof = "schema:ScholarlyArticle" resource = "#">
-			<h1> Proiect Japalearnos </h1>
-			<section>
-				<ol>
-					<li property="schema:author" typeof = "sa:ContributorRole">
-						<a property = "schema:author" typeof = "schema:Person">
-							<span property = "schema:givenName">Emma</span>
-							<span property= "schema:familyName">Sleghel</span>
-						</a>
-					</li>
+                        <li property="schema:author" typeof="sa:ContributorRole">
+                            <a property="schema:author" typeof="schema:Person">
+                                <span property="schema:givenName">Radu</span>
+                                <span property="schema:familyName">Miron</span>
+                            </a>
+                        </li>
+                    </ol>
+                </section>
 
-					<li property="schema:author" typeof = "sa:ContributorRole">
-						<a property = "schema:author" typeof = "schema:Person">
-							<span property = "schema:givenName">Radu</span>
-							<span property= "schema:familyName">Miron</span>
-						</a>
-					</li>
-				</ol>
-			</section>	
+                <section typeof="sa:Abstract">
+                    <h1>
+                        Crearea Proiectului
+                    </h1>
+                    <ul id="etape">
+                        <li>
+                            <b>realizarea frontend-ului(html, css, js)</b>
+                            <ul>
+                                <li>
+                                    Emma:
+                                    <ul>
+                                        <li>Start</li>
 
-			<section typeof = "sa:Abstract">
-				<h1> Crearea Proiectului
-				</h1>	
-				<ul id = "etape">
-						<li><b>realizarea frontend-ului(html, css, js)</b>
-							<ul>
-								<li>Emma:
-									<ul>
-										<li>Start</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Radu:
+                                    <ul>
+                                        <li>Drawing</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
 
-									</ul>
-								</li>
-								<li>Radu:
-									<ul>
-										<li>Drawing</li>
-									</ul>	
-								</li>
-							</ul>
-						</li>
+                        <li>
+                            <b>integrarea paginilor si a scripturilor js</b>
+                            <ul>
+                                <li>Emma &amp; Radu</li>
+                            </ul>
+                        </li>
 
-						<li><b>integrarea paginilor si a scripturilor js</b>
-							<ul>
-									<li>Emma &amp; Radu</li>
-							</ul>
-						</li>
+                        <li>
+                            <b>generarea dinamica de pagini pentru fiecare lectie in parte in Flask(Python)</b>
+                            <ul>
+                                <li>Emma &amp; Radu</li>
+                            </ul>
 
-						<li><b>generarea dinamica de pagini pentru fiecare lectie in parte in Flask(Python)</b>
-							<ul>
-									<li>Emma &amp; Radu</li>
-							</ul>
-
-						</li>
-				</ul>
-
-		</article>
-	</body>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+    </body>
 </html>

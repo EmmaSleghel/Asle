@@ -6,6 +6,7 @@
     <title>Japalearnos</title>
     <meta name="description" content="website description" />
     <meta name="keywords" content="website keywords, website keywords" />
+    <script src="modernizr-custom.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" title="style" />
 </head>
 
@@ -53,7 +54,10 @@
                 </div>
                 <div id="another-page" class="pages" style="display:none">
                     <div class="canvas-div">
-
+                        <canvas id="myCanvas" >
+                            Your browser does not support Canvas
+                        </canvas>
+                        <button id="canvasButton" onclick="myFunction()">LET ME TRY</button>
                     </div>
                 </div>
             </div>
