@@ -1,0 +1,44 @@
+header p.title{
+  max-width: 900px;
+  padding: 0 10px;
+  margin: 0 auto;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+header {
+  border-top: 8px solid #2196f3;
+  border-bottom: 2px solid #BDD5E9;
+  margin-bottom: 35px;
+  background: #fff;
+}
+
+body {
+	background-image: url("background.jpg");
+}
+
+article {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  padding: 10px;
+}
+
+h1 {
+	margin-left: 60px;
+}
+
+article > section:first-of-type ol:first-of-type::before {
+  content: 'Autori:';
+  margin-left: 20px;
+}
+
+article > section:first-of-type ol li{
+  list-style-type: none;
+  margin-left: 40px;
+}
+
+#etape {
+	margin-left: 65px;
+}
