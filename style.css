@@ -145,7 +145,7 @@ ul#menu, ul#menu li {
 .main-content {
     float: left;
     width: 70%;
-    height: 400px;
+    height: 420px;
 }
 
 .pages {
@@ -215,4 +215,26 @@ ul#menu, ul#menu li {
     margin:auto;
     margin-top:50px;
    
+}
+.letter-tile {
+    float: left;
+    position: relative;
+    width: 12%;
+    height: 16%;
+    margin: 1.11%;
+    overflow: hidden;
+    background: transparent url(transparent.png) repeat;
+}
+.letter-img {
+   height:60px;
+   width:63px;
+   overflow:hidden;
+   position:center;
+   padding-left:6px;
+   padding-top:3px;
+}
+.letter-tile :hover {
+    background:black;
+    margin-left:-1px;
+    margin-bottom:-1px;
 }

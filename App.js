@@ -44,3 +44,7 @@ function contactPage() {
     document.getElementById('contact-tile').className = 'selected';
     document.getElementById("contact-page").style.display = "block";
 }
+for (i = 1; i <= 35; i++)
+{
+    document.getElementById("example-page").innerHTML +='<div class="letter-tile" onclick="anotherPage()"><img class="letter-img" src="'+i+'.png" /></div>';
+}
