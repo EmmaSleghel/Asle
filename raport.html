@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang = ro>
+<head>
+<meta charset = "utf-8">
+<meta name = "viewport" content = "width = device-width">
+
+<title> Raport Japalearnos - Scholarly HTML </title>
+<link rel = "stylesheet" href = raport.css>
+</head>
+
+	<body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+		<header>
+			<p class = "title"> Raport Japalearnos - Scholarly HTML</p>
+		</header>
+
+		<article typeof = "schema:ScholarlyArticle" resource = "#">
+			<h1> Proiect Japalearnos </h1>
+			<section>
+				<ol>
+					<li property="schema:author" typeof = "sa:ContributorRole">
+						<a property = "schema:author" typeof = "schema:Person">
+							<span property = "schema:givenName">Emma</span>
+							<span property= "schema:familyName">Sleghel</span>
+						</a>
+					</li>
+
+					<li property="schema:author" typeof = "sa:ContributorRole">
+						<a property = "schema:author" typeof = "schema:Person">
+							<span property = "schema:givenName">Radu</span>
+							<span property= "schema:familyName">Miron</span>
+						</a>
+					</li>
+				</ol>
+			</section>	
+
+			<section typeof = "sa:Abstract">
+				<h1> Crearea Proiectului
+				</h1>	
+				<ul id = "etape">
+						<li><b>realizarea frontend-ului(html, css, js)</b>
+							<ul>
+								<li>Emma:
+									<ul>
+										<li>Start</li>
+
+									</ul>
+								</li>
+								<li>Radu:
+									<ul>
+										<li>Drawing</li>
+									</ul>	
+								</li>
+							</ul>
+						</li>
+
+						<li><b>integrarea paginilor si a scripturilor js</b>
+							<ul>
+									<li>Emma &amp; Radu</li>
+							</ul>
+						</li>
+
+						<li><b>generarea dinamica de pagini pentru fiecare lectie in parte in Flask(Python)</b>
+							<ul>
+									<li>Emma &amp; Radu</li>
+							</ul>
+
+						</li>
+				</ul>
+
+		</article>
+	</body>
+</html>
