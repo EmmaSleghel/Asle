@@ -43,7 +43,7 @@
                             The first step to learning the Japanese language is to learn the alphabet. Or, at least, to learn the sounds that exist in the language. There are absolutely no "tones" in Japanese like in many other asian languages and there are only 2 exceptions within the alphabet which will be explained later. The Japanese alphabet does not contain letters but, instead, contains characters and, technically, they are not alphabets but character sets.
                         </h4>
                     </div>
-                        </div>
+                    </div>
                 <div id="example-page" class="pages" style="display:none">
                 
 
@@ -54,13 +54,18 @@
                 </div>
                 <div id="another-page" class="pages" style="display:none">
                     <div class="canvas-div">
-                        <canvas id="myCanvas" >
-                            Your browser does not support Canvas
-                        </canvas>
-                        <button id="canvasButton" onclick="myFunction()">LET ME TRY</button>
+                        <canvas id="canvas" width="440" height="440" style="border:1px solid #d3d3d3;">
+                            Your browser does not support the HTML5 canvas tag.
+                            </canvas>
+                        
                     </div>
-                </div>
-            </div>
+                    <div class="btn-group">
+                        <button  type="button" class="btn" id ="b1" onclick="myFunction1()">Show!</button>
+                        <button  type="button" class="btn" id ="b2" onclick="myFunction2()">Test!</button>
+                        <button  type="button" class="btn" id ="b3" onclick="myFunction3()">Get Points!</button>
+                          </div>
+             </div>
+             </div>
             <div class="sidebar">
 
                 <h3>What's new in Japalearnos</h3>
@@ -89,5 +94,6 @@
     <script src="App.js">
   
     </script>
+    <script src="dynamic-time-warping.js"></script>
 </body>
 </html>
