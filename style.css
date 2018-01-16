@@ -272,7 +272,21 @@ ul#menu, ul#menu li {
 .btn-group{
     display: inline-block;
     vertical-align: middle;
-    margin-left: 215px;
+    margin-left: 150px;
     background-color: transparent;
     
+}
+#title-div{
+        display: inline-block;
+         font-size: 35px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+      position: absolute;
+  z-index: 15;
+  z-index: 15;
+  top: 35%;
+  left: 46%;
+  margin: -100px 0 0 -150px;
+  background: transparent;
 }

@@ -53,19 +53,23 @@ function contactPage() {
     isOnCanvas = false;
 
 }
-var letter='A'
+var letter='A';
 var count=0;
-
 for (i = 1; i <= 35; i++)
 {
-    document.getElementById("example-page").innerHTML +='<div class="letter-tile" id="'+String.fromCharCode(letter.charCodeAt() + count)+'" onclick="anotherPage()"><img class="letter-img" src="'+i+'.png" /></div>';
-    count++;
+    document.getElementById("example-page").innerHTML +='<div class="letter-tile" id="'+String.fromCharCode(letter.charCodeAt() + count) +'" onclick="anotherPage()"><img class="letter-img" src="'+i+'.png" /></div>';
+    count= count + 1;
 }
+var userParts = [];
+var savedPart = [];
 var letters = {}
 letters['A'] = [[54, 55, 53, 101, 322, 95, 320, 50], [214, 38, 175, 37, 161, 333, 195, 332], [315, 203, 27, 457, 119, 37, 349, 296]];
 letters['B'] = [[150, 100, 150, 100, 350, 100, 350, 100], [317, 101, 317, 101, 110, 358, 290, 362], [380, 175, 380, 175, 381, 234, 381, 234]];
+letters['C'] = [[141, 233, 14, 20, 322, 67, 33, 111], [455, 353, 100, 234, 332, 128, 333, 222], [122, 342, 344, 333, 381, 234, 381, 234]];
+letters['D'] = [[100, 222, 132, 67, 312, 144, 234, 100], [222, 111, 45, 20, 110, 358, 333, 234], [233, 111, 234, 175, 381, 213, 381, 122]];
+
 console.log(letters['A'])
-var current_letter = 'A';
+//var current_letter = 'A';
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d")
 ctx.lineWidth = 16;
@@ -73,7 +77,11 @@ ctx.strokeStyle = "#333";
 var fps = 20;
 var percent = 0;
 var direction = 1;
+var pixels = [];
 var curvePixels = [];
+var part1Curve = [];
+var part2Curve = [];
+var part3Curve = [];
 stopShowing = false;
 var funct2Activated = false; 
 var limit = (canvas.width + canvas.height)/30;
@@ -94,25 +102,22 @@ function draw_letter(letter){
 //draw_b_c(54, 55, 53, 101, 322, 95, 320, 50);
 //draw_b_c(214, 38, 175, 37, 161, 333, 195, 332);
 //draw_b_c(315, 203, 27, 457, 119, 37, 349, 296);
-document.getElementById('A').addEventListener('click', function() {
+var titlediv=document.getElementById('title-div');
+debugger;
+var scorediv=document.getElementById('score-div');
+function letterDraw(selectedletter, text) {
+	if (id != undefined){
+	fps = 20;
+	if (curvePixels.length < 100){
+		clearInterval(id);
+		curvePixels = [];
+		curvePixels = [];
+		part1Curve = [];
+		part2Curve = [];
+		part3Curve = [];
+	}};
 	ctx.clearRect(0,0,440,440);
-	current_letter = 'A';
-	draw_letter(current_letter);
-	percent = 0;
-	direction = 1;
-	curvePixels = [];
-	stopShowing = false;
-	count = 0; 
-	pixels1 = [];
-	path = [];
-	mouse = {x: 0, y: 0};
-	last_mouse = {x: 0, y: 0};
- mouse_pressed = false;
-});
-
-document.getElementById('B').addEventListener('click', function() {
-	ctx.clearRect(0,0,440,440);
-	current_letter = 'B';
+	current_letter = selectedletter;
 	draw_letter(current_letter);
 	percent = 0;
 	direction = 1;
@@ -121,12 +126,26 @@ document.getElementById('B').addEventListener('click', function() {
 	id; 
 	count = 0; 
 	pixels1 = [];
+	userParts = [];
+	pixels = [];
 	path = [];
 	mouse = {x: 0, y: 0};
 	last_mouse = {x: 0, y: 0};
 	mouse_pressed = false;
-});
+	canvas.removeEventListener('mousemove', funct1,  false);
+    canvas.removeEventListener('mousemove', onPaint1, false);
+    canvas.removeEventListener('mousedown', funct2, false);
+    while (titlediv.firstChild) {
+    titlediv.removeChild(titlediv.firstChild);
+}
+    var node=document.createTextNode(text);
+    titlediv.appendChild(node);
+};
+document.getElementById('A').addEventListener('click',function(){letterDraw('A','Health'); });
 
+document.getElementById('B').addEventListener('click',function(){letterDraw('B','Faith');});
+document.getElementById('C').addEventListener('click',function(){letterDraw('C','Wisdom');});
+document.getElementById('D').addEventListener('click',function(){letterDraw('D','Happiness');});
 
 var id; 
 var count = 0; 
@@ -136,6 +155,10 @@ function myFunction1(){
 	fps = 20;
 	if (curvePixels.length < 100){
 		curvePixels = [];
+		curvePixels = [];
+		part1Curve = [];
+		part2Curve = [];
+		part3Curve = [];
 	}
 	percent = 0;
 	direction = 1;
@@ -164,9 +187,24 @@ function CubicN(pct, a, b, c, d){
 function animate() {
 	percent += direction;
 	if(percent < 0){ percent = 0; direction = 1;};
-	if(percent > 100) {percent = 0; direction = 1; count += 1;};
+	if(percent > 100) {percent = 0; direction = 1;
+		if (count == 0){
+		for (var i = 0; i < part1Curve.length; i ++){
+			curvePixels.push(part1Curve[i]);
+		};
+		for (var i = 0; i < part2Curve.length; i ++){
+			curvePixels.push(part2Curve[i]);
+		};
+		for (var i = 0; i < part3Curve.length; i ++){
+			curvePixels.push(part3Curve[i]);
+		};
+
+		};
+	 count += 1; };
+		
 
 	draw(percent);
+
 };
 
 function draw(sliderValue){
@@ -176,25 +214,27 @@ function draw(sliderValue){
 			var percent = sliderValue / 33;
 			xy = getCubicBezierXYatPercent({x:letters[current_letter][0][0], y:letters[current_letter][0][1]},{x:letters[current_letter][0][2], y:letters[current_letter][0][3]}, {x:letters[current_letter][0][4], y:letters[current_letter][0][5]}, {x:letters[current_letter][0][6], y:letters[current_letter][0][7]}, percent);
 			if (count == 0){
-				curvePixels.push([xy.x, xy.y]);}
+
+				part1Curve.push([xy.x, xy.y]);}
 
 			drawDot(xy, "red", ctx);
 		} else if (sliderValue < 66){
 			var percent = (sliderValue - 33)/ 33;
 			xy = getCubicBezierXYatPercent({x:letters[current_letter][1][0], y:letters[current_letter][1][1]},{x:letters[current_letter][1][2], y:letters[current_letter][1][3]}, {x:letters[current_letter][1][4], y:letters[current_letter][1][5]}, {x:letters[current_letter][1][6], y:letters[current_letter][1][7]}, percent);
 			if (count == 0){
-				curvePixels.push([xy.x, xy.y]);}
+				part2Curve.push([xy.x, xy.y]);}
 			drawDot(xy, "red", ctx);
 		} else {
 			var percent = (sliderValue - 67)/ 33;
 			xy = getCubicBezierXYatPercent({x:letters[current_letter][2][0], y:letters[current_letter][2][1]},{x:letters[current_letter][2][2], y:letters[current_letter][2][3]}, {x:letters[current_letter][2][4], y:letters[current_letter][2][5]}, {x:letters[current_letter][2][6], y:letters[current_letter][2][7]}, percent);
 			if (count == 0){
-				curvePixels.push([xy.x, xy.y]);}
+				part3Curve.push([xy.x, xy.y]);}
 			drawDot(xy, "red", ctx);
 		};
 
 };
-function drawDot(point, color, canvasCtx){
+function drawDot(point, color, canvasCtx)
+{
 ctx.fillStyle = color;
 ctx.strokeStyle = "black";
 ctx.lineWidth = 3;
@@ -230,11 +270,16 @@ function funct3(e){
 	canvas.addEventListener('mousemove',onPaint1,false);
 	mouse_pressed = false;
 	console.log('Nu apas1');
+	pixels1.push(userParts);
+	userParts = [];
+
 };
 
 function myFunction2(){
 	if (funct2Activated == true){
 		pixels1 = [];
+		userParts = [];
+		pixels = [];
 	}
 	funct2Activated = true;
 	clearInterval(id);
@@ -252,12 +297,13 @@ function myFunction2(){
 
 var onPaint1 = function(){
 	if (mouse_pressed == false) {
-		console.log('Nu pictez1')
+		console.log('Nu pictez1');
 		return;}
 	ctx.beginPath();
 	ctx.moveTo(last_mouse.x, last_mouse.y);
 	ctx.lineTo(mouse.x, mouse.y);
-	pixels1.push([mouse.x, mouse.y]);
+	userParts.push([mouse.x, mouse.y]);
+	pixels.push([mouse.x, mouse.y]);
 	ctx.closePath();
 	ctx.stroke();
 };
@@ -269,7 +315,7 @@ function myFunction3(){
     canvas.removeEventListener('mousedown', funct2, false);
 
 
-	sig1 = prepareSignature(pixels1);
+	sig1 = prepareSignature(pixels);
 	sig2 = prepareSignature(curvePixels);
 	var dtw = new DynamicTimeWarping(sig1, sig2, function (a, b) {
     var xDiff = a[0] - b[0];
@@ -283,17 +329,23 @@ function myFunction3(){
 	var result = result / path.length;
 	var roundedLimit = Math.round(limit * 1000) / 1000;
     var roundedResult = Math.round(result * 1000) / 1000;
+         var nodeul=document.createTextNode("Score");
+        scorediv.appendChild(nodeul);
 	drawresult(path);
 	if (roundedResult < roundedLimit)
 	{
-		console.log('Bravo! Primesti o pula!!!');
+		console.log('Good job!!!');
 		console.log(roundedResult);
+   
+          
 	} else {
-		console.log('Ma cac pe desenu tau!!!');
+		console.log('Try again!!!');
 		console.log(roundedResult);
+       
 	};
+   
+  
 };
-
 function prepareSignature(data) {
     var xMean = 0;
     var yMean = 0;
@@ -313,28 +365,53 @@ function prepareSignature(data) {
 function drawresult(path){
 ctx.linewidth = 8;
 ctx.strokeStyle = "#eb00eb";
-for (var i = 1; i < pixels1.length; i++){
-	ctx.beginPath();
-	ctx.moveTo(pixels1[i - 1][0], pixels1[i - 1][1]);
-	ctx.lineTo(pixels1[i][0], pixels1[i][1]);
-	ctx.stroke();
-}
+for (var j = 0; j < pixels1.length; j++){
+	for (var i = 1; i < pixels1[j].length; i++){
+		ctx.beginPath();
+		ctx.moveTo(pixels1[j][i - 1][0], pixels1[j][i - 1][1]);
+		ctx.lineTo(pixels1[j][i][0], pixels1[j][i][1]);
+		ctx.stroke();
+};};
+
+
+
 ctx.strokeStyle = "#00ebeb";
-for (var i = 1; i < curvePixels.length; i++){
+/*for (var i = 1; i < curvePixels.length; i++){
 	ctx.beginPath();
 	ctx.moveTo(curvePixels[i - 1][0], curvePixels[i - 1][1]);
 	ctx.lineTo(curvePixels[i][0], curvePixels[i][1]);
 	ctx.stroke();
-}
+};*/
+
+for (var i = 1; i < part1Curve.length; i ++){
+	ctx.beginPath();
+	ctx.moveTo(part1Curve[i - 1][0], part1Curve[i - 1][1]);
+	ctx.lineTo(part1Curve[i][0], part1Curve[i][1]);
+	ctx.stroke();
+};
+
+for (var i = 1; i < part2Curve.length; i ++){
+	ctx.beginPath();
+	ctx.moveTo(part2Curve[i - 1][0], part2Curve[i - 1][1]);
+	ctx.lineTo(part2Curve[i][0], part2Curve[i][1]);
+	ctx.stroke();
+};
+
+for (var i = 1; i < part3Curve.length; i ++){
+	ctx.beginPath();
+	ctx.moveTo(part3Curve[i - 1][0], part3Curve[i - 1][1]);
+	ctx.lineTo(part3Curve[i][0], part3Curve[i][1]);
+	ctx.stroke();
+};
 
 ctx.strokeStyle = "#000000";
 for (var i = 0; i < path.length; i ++){
 	var index1 = path[i][0];
 	var index2 = path[i][1];
 	ctx.beginPath();
-	ctx.moveTo(pixels1[index1][0], pixels1[index1][1]);
+	ctx.moveTo(pixels[index1][0], pixels[index1][1]);
 	ctx.lineTo(curvePixels[index2][0], curvePixels[index2][1]);
 	ctx.stroke();
-}
+};
 
 };
