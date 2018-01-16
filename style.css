@@ -139,7 +139,7 @@ ul#menu, ul#menu li {
     width: 59%;
     overflow: hidden;
     margin: 0 auto 0 auto;
-    padding: 10px, 10px, 10px, 10px;
+    padding: 10px 10px 10px 10px;
     background: transparent url(transparent_light.png) repeat;
 }
 
@@ -230,7 +230,6 @@ ul#menu, ul#menu li {
    height:60px;
    width:63px;
    overflow:hidden;
-   position:center;
    padding-left:6px;
    padding-top:3px;
 }
@@ -256,13 +255,8 @@ ul#menu, ul#menu li {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     background-image: none;
     border: 1px solid grey;
     background-color: red;
@@ -272,7 +266,8 @@ ul#menu, ul#menu li {
 .btn-group{
     display: inline-block;
     vertical-align: middle;
-    margin-left: 150px;
+    left:30%;
+    position:relative;
     background-color: transparent;
     
 }
@@ -285,7 +280,7 @@ ul#menu, ul#menu li {
       position: absolute;
   z-index: 15;
   z-index: 15;
-  top: 35%;
+  top: 38%;
   left: 46%;
   margin: -100px 0 0 -150px;
   background: transparent;

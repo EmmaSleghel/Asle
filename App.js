@@ -63,13 +63,12 @@ for (i = 1; i <= 35; i++)
 var userParts = [];
 var savedPart = [];
 var letters = {}
-letters['A'] = [[54, 55, 53, 101, 322, 95, 320, 50], [214, 38, 175, 37, 161, 333, 195, 332], [315, 203, 27, 457, 119, 37, 349, 296]];
+letters['A'] = [[54, 55, 53, 101, 322, 95, 320, 50], [314, 38, 175, 37, 161, 333, 195, 332], [315, 203, 27, 457, 119, 37, 249, 296]];
 letters['B'] = [[150, 100, 150, 100, 350, 100, 350, 100], [317, 101, 317, 101, 110, 358, 290, 362], [380, 175, 380, 175, 381, 234, 381, 234]];
 letters['C'] = [[141, 233, 14, 20, 322, 67, 33, 111], [455, 353, 100, 234, 332, 128, 333, 222], [122, 342, 344, 333, 381, 234, 381, 234]];
 letters['D'] = [[100, 222, 132, 67, 312, 144, 234, 100], [222, 111, 45, 20, 110, 358, 333, 234], [233, 111, 234, 175, 381, 213, 381, 122]];
 
 console.log(letters['A'])
-//var current_letter = 'A';
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d")
 ctx.lineWidth = 16;
@@ -99,11 +98,8 @@ function draw_letter(letter){
 		draw_b_c(letters[letter][i][0], letters[letter][i][1], letters[letter][i][2], letters[letter][i][3], letters[letter][i][4], letters[letter][i][5],letters[letter][i][6], letters[letter][i][7]);
 	}
 }
-//draw_b_c(54, 55, 53, 101, 322, 95, 320, 50);
-//draw_b_c(214, 38, 175, 37, 161, 333, 195, 332);
-//draw_b_c(315, 203, 27, 457, 119, 37, 349, 296);
+
 var titlediv=document.getElementById('title-div');
-debugger;
 var scorediv=document.getElementById('score-div');
 function letterDraw(selectedletter, text) {
 	if (id != undefined){
@@ -141,8 +137,8 @@ function letterDraw(selectedletter, text) {
     var node=document.createTextNode(text);
     titlediv.appendChild(node);
 };
-document.getElementById('A').addEventListener('click',function(){letterDraw('A','Health'); });
 
+document.getElementById('A').addEventListener('click',function(){letterDraw('A','Health'); });
 document.getElementById('B').addEventListener('click',function(){letterDraw('B','Faith');});
 document.getElementById('C').addEventListener('click',function(){letterDraw('C','Wisdom');});
 document.getElementById('D').addEventListener('click',function(){letterDraw('D','Happiness');});
@@ -150,7 +146,6 @@ document.getElementById('D').addEventListener('click',function(){letterDraw('D',
 var id; 
 var count = 0; 
 function myFunction1(){
-
 	if (id != undefined){
 	fps = 20;
 	if (curvePixels.length < 100){
@@ -300,10 +295,10 @@ var onPaint1 = function(){
 		console.log('Nu pictez1');
 		return;}
 	ctx.beginPath();
-	ctx.moveTo(last_mouse.x, last_mouse.y);
-	ctx.lineTo(mouse.x, mouse.y);
-	userParts.push([mouse.x, mouse.y]);
-	pixels.push([mouse.x, mouse.y]);
+	ctx.moveTo(last_mouse.x + 50, last_mouse.y + 50);
+	ctx.lineTo(mouse.x + 50, mouse.y + 50);
+	userParts.push([mouse.x + 50, mouse.y + 50]);
+	pixels.push([mouse.x + 50, mouse.y + 50]);
 	ctx.closePath();
 	ctx.stroke();
 };
@@ -329,21 +324,22 @@ function myFunction3(){
 	var result = result / path.length;
 	var roundedLimit = Math.round(limit * 1000) / 1000;
     var roundedResult = Math.round(result * 1000) / 1000;
-         var nodeul=document.createTextNode("Score");
-        scorediv.appendChild(nodeul);
+		
 	drawresult(path);
 	if (roundedResult < roundedLimit)
 	{
 		console.log('Good job!!!');
 		console.log(roundedResult);
-   
+	alert("Good job! Your score: "+roundedResult);
+	
           
 	} else {
 		console.log('Try again!!!');
 		console.log(roundedResult);
-       
+	alert("Not so good! Try again! Your score: "+roundedResult);
+	
 	};
-   
+	
   
 };
 function prepareSignature(data) {
@@ -376,12 +372,6 @@ for (var j = 0; j < pixels1.length; j++){
 
 
 ctx.strokeStyle = "#00ebeb";
-/*for (var i = 1; i < curvePixels.length; i++){
-	ctx.beginPath();
-	ctx.moveTo(curvePixels[i - 1][0], curvePixels[i - 1][1]);
-	ctx.lineTo(curvePixels[i][0], curvePixels[i][1]);
-	ctx.stroke();
-};*/
 
 for (var i = 1; i < part1Curve.length; i ++){
 	ctx.beginPath();
